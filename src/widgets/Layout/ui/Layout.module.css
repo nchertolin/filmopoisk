@@ -1,0 +1,10 @@
+.container {
+    row-gap: var(--space-l);
+    margin: 0 auto;
+}
+
+.content {
+    width: var(--page-width);
+    min-height: 100vh;
+    margin: 0 auto;
+}

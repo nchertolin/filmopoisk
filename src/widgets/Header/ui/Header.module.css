@@ -1,0 +1,14 @@
+.container {
+    position: sticky;
+    top: 0;
+    background-color: var(--header-bg-color);
+    padding: var(--space-l) 0;
+    z-index: 1;
+}
+
+.content {
+    align-items: center;
+    justify-content: space-between;
+    width: var(--page-width);
+    margin: 0 auto;
+}

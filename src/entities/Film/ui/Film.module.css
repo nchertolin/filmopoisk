@@ -1,0 +1,14 @@
+.container {
+    padding: var(--space-l);
+    justify-content: space-between;
+}
+
+.container:hover {
+    background-color: #F8F8F8;
+}
+
+.poster {
+    width: 100px;
+    height: 120px;
+    border-radius: var(--space-s);
+}

@@ -1,0 +1,8 @@
+@import url('./variables.css');
+@import url('./reset.css');
+
+#root {
+    position: relative;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+}

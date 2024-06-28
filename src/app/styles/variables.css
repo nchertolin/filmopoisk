@@ -1,0 +1,21 @@
+:root {
+    --space-s: 8px;
+    --space-m: calc(var(--space-s) * 2);
+    --space-l: calc(var(--space-s) * 3);
+    --space-xl: calc(var(--space-s) * 4);
+
+    --page-width: calc(100vw - 2 * var(--space-xl));
+    --filter-width: calc(360px + 2 * var(--space-l));
+
+    --bg-color: #F5F5F5;
+    --header-bg-color: #333333;
+
+    --primary-color: #FF5500;
+    --secondary-color: #ABABAB;
+    --error-color: #F04075;
+    --border-color: #CED2D6;
+
+
+    --font-color: #1B1F23;
+    --inverted-font-color: #FFFFFF;
+}

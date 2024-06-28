@@ -13,16 +13,19 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     plugins: ['react-refresh'],
     rules: {
+        'camelcase': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/member-ordering': 'off',
         '@typescript-eslint/naming-convention': 'off',
         'import/prefer-default-export': 'off',
         'import/no-unresolved': 'off',
+        'no-shadow': 'off',
         'import/no-extraneous-dependencies': 'off',
         'import/extensions': 'off',
         'class-methods-use-this': 'off',
         'max-classes-per-file': 'off',
         'react/prop-types': 'off',
+        'react/require-default-props': 'off',
         'react/display-name': 'off',
         'max-len': ['warn', 120],
         'react/react-in-jsx-scope': 'off',
@@ -34,7 +37,7 @@ module.exports = {
                 ignorePropertyModificationsFor: ['state'],
             },
         ],
-        'arrow-parens': ['error', 'as-needed'],
+        'arrow-parens': ['warn', 'always'],
         'react/function-component-definition': [
             'warn',
             {
