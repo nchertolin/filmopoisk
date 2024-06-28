@@ -1,8 +1,8 @@
 import { IconButton, InputAdornment, TextFieldProps } from '@mui/material';
 import { ChangeEvent, useState } from 'react';
-import { BaseField } from '@/shared/ui';
 import { SearchIcon } from '@/shared/ui/Icons/SearchIcon';
 import { ClearIcon } from '@/shared/ui/Icons/ClearIcon.tsx';
+import { BaseField } from '@/shared/ui';
 
 export const BaseSearchField = (props: TextFieldProps) => {
     const [value, setValue] = useState('');
@@ -22,6 +22,9 @@ export const BaseSearchField = (props: TextFieldProps) => {
             sx={(theme) => ({
                 '.MuiOutlinedInput-root': {
                     paddingLeft: '12px',
+                    '& fieldset': {
+                        borderColor: theme.palette.background.paper,
+                    },
                 },
                 input: {
                     paddingLeft: `${theme.spacing(1)} !important`,

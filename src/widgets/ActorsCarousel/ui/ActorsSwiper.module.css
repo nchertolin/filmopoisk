@@ -1,0 +1,43 @@
+.swiper {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.swiperContent {
+    transition: transform 0.5s ease
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: flex;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+
+
+    background-color: var(--inverted-font-color);
+    z-index: 2;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: var(--inverted-font-color) !important;
+}
+
+.prev:hover svg path,
+.next:hover svg path {
+    fill: var(--secondary-color) !important;
+}

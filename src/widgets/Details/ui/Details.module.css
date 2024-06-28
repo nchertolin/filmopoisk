@@ -1,0 +1,11 @@
+.container {
+    background-color: var(--inverted-font-color);
+    border-radius: var(--space-s);
+    padding: var(--space-l);
+}
+
+.poster {
+    width: var(--details-poster-width);
+    height: var(--details-poster-height);
+    border-radius: var(--space-s);
+}

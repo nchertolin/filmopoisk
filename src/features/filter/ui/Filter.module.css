@@ -1,0 +1,7 @@
+.container {
+    width: var(--filter-width);
+    align-self: flex-start;
+    background-color: var(--inverted-font-color);
+    border-radius: var(--space-s);
+    padding: var(--space-l);
+}

@@ -1,0 +1,12 @@
+.backdrop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    width: var(--auth-modal-width);
+    border-radius: var(--space-s);
+    padding: var(--space-l);
+
+}

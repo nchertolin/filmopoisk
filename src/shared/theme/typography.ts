@@ -22,6 +22,11 @@ export const typography: TypographyOptions | ((palette: Palette) => TypographyOp
         fontWeight: 600,
         lineHeight: 0.9,
     },
+    subtitle1: {
+        fontSize: 20,
+        fontWeight: 400,
+        lineHeight: 0.9,
+    },
     body1: {
         fontSize: 14,
         fontWeight: 400,

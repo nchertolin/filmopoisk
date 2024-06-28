@@ -5,7 +5,7 @@ export interface IFilm {
     readonly genre: string;
     readonly actors: string[];
     readonly rating: number;
-    readonly total_rates_count: number;
     readonly release_year: number;
     readonly poster: string;
+    // readonly total_rates_count: number;
 }

@@ -33,7 +33,7 @@ export const Film = memo((props: FilmProps) => {
     return (
         <Paper component={Stack} direction="row" elevation={0} className={styles.container}>
             <Stack direction="row" spacing={3}>
-                <Avatar variant="rounded" src={poster} alt={`Постер ${title}`} className={styles.poster} />
+                <Avatar src={poster} alt={`Постер ${title}`} className={styles.poster} />
                 <Stack spacing={2}>
                     <Link to={`${id}`}>
                         <Typography variant="h3">{title}</Typography>
@@ -46,7 +46,7 @@ export const Film = memo((props: FilmProps) => {
                     </Stack>
                 </Stack>
             </Stack>
-            <BaseRating />
+            <BaseRating sx={{ alignSelf: 'flex-start' }} />
         </Paper>
     );
 });

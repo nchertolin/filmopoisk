@@ -6,6 +6,10 @@
 
     --page-width: calc(100vw - 2 * var(--space-xl));
     --filter-width: calc(360px + 2 * var(--space-l));
+    --auth-modal-width: 344px;
+    --search-width: 400px;
+    --details-poster-width: 400px;
+    --details-poster-height: 500px;
 
     --bg-color: #F5F5F5;
     --header-bg-color: #333333;

@@ -1,17 +1,27 @@
 import { Stack, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import styles from './Header.module.css';
-import { BaseButton } from '@/shared/ui';
+import { LoginModal } from '@/features/login';
 
 export const Header = () => {
-    console.log('header');
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate('/');
+    };
 
     return (
         <Stack className={styles.container}>
             <Stack direction="row" className={styles.content}>
-                <Typography variant="h1" color={(theme) => theme.palette.background.paper}>
+                <Typography
+                    variant="h1"
+                    color={(theme) => theme.palette.background.paper}
+                    onClick={handleClick}
+                    sx={{ cursor: 'pointer' }}
+                >
                     Фильмопоиск
                 </Typography>
-                <BaseButton variant="contained">Войти</BaseButton>
+                <LoginModal />
             </Stack>
         </Stack>
     );
