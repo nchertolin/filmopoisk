@@ -63,10 +63,5 @@ const IconContainerComponent = (props: IconContainerComponentProps) => {
 };
 
 export const BaseRating = memo((props: RatingProps) => (
-    <StyledRating
-        precision={1}
-        IconContainerComponent={IconContainerComponent}
-        /* eslint-disable-next-line react/jsx-props-no-spreading */
-        {...props}
-    />
+    <StyledRating precision={1} IconContainerComponent={IconContainerComponent} {...props} />
 ));

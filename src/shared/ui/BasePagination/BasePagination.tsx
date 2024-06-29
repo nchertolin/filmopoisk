@@ -1,7 +1,5 @@
 import { Pagination, PaginationItem, PaginationProps, styled } from '@mui/material';
 
-/* eslint-disable react/jsx-props-no-spreading */
-
 export const BasePagination = styled((props: PaginationProps) => (
     <Pagination shape="circular" renderItem={(item) => <PaginationItem {...item} />} {...props} />
 ))(({ theme }) => ({

@@ -15,17 +15,22 @@ export const typography: TypographyOptions | ((palette: Palette) => TypographyOp
     h3: {
         fontSize: 20,
         fontWeight: 600,
-        lineHeight: 0.9,
+        lineHeight: 1.1,
     },
     h4: {
         fontSize: 16,
         fontWeight: 600,
-        lineHeight: 0.9,
+        lineHeight: 1,
     },
     subtitle1: {
         fontSize: 20,
         fontWeight: 400,
-        lineHeight: 0.9,
+        lineHeight: 1,
+    },
+    subtitle2: {
+        fontSize: 16,
+        fontWeight: 400,
+        lineHeight: 1,
     },
     body1: {
         fontSize: 14,

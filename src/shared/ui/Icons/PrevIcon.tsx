@@ -9,7 +9,6 @@ export const PrevIcon = (props: SVGProps<unknown>) => (
         height={24}
         fill="none"
         style={{ transform: 'rotate(180deg)' }}
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
     >
         <path

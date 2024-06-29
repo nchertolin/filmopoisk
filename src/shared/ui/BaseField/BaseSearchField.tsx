@@ -1,24 +1,17 @@
 import { IconButton, InputAdornment, TextFieldProps } from '@mui/material';
-import { ChangeEvent, useState } from 'react';
 import { SearchIcon } from '@/shared/ui/Icons/SearchIcon';
 import { ClearIcon } from '@/shared/ui/Icons/ClearIcon.tsx';
 import { BaseField } from '@/shared/ui';
 
-export const BaseSearchField = (props: TextFieldProps) => {
-    const [value, setValue] = useState('');
+type SearchFieldProps = TextFieldProps & {
+    readonly onClear: () => void;
+};
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value);
-    };
-
-    const handleClear = () => {
-        setValue('');
-    };
+export const BaseSearchField = (props: SearchFieldProps) => {
+    const { onClear, ...otherProps } = props;
 
     return (
         <BaseField
-            value={value}
-            onChange={handleChange}
             sx={(theme) => ({
                 '.MuiOutlinedInput-root': {
                     paddingLeft: '12px',
@@ -37,16 +30,15 @@ export const BaseSearchField = (props: TextFieldProps) => {
                         <SearchIcon />
                     </InputAdornment>
                 ),
-                endAdornment: value.length ? (
+                endAdornment: otherProps.value.length ? (
                     <InputAdornment position="end">
-                        <IconButton onClick={handleClear} sx={{ padding: 0 }}>
+                        <IconButton onClick={onClear} sx={{ padding: 0 }}>
                             <ClearIcon />
                         </IconButton>
                     </InputAdornment>
                 ) : null,
             }}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...props}
+            {...otherProps}
         />
     );
 };

@@ -3,7 +3,6 @@
 import { SVGProps } from 'react';
 
 export const UserIcon = (props: SVGProps<unknown>) => (
-    // eslint-disable-next-line react/jsx-props-no-spreading
     <svg xmlns="http://www.w3.org/2000/svg" width={40} height={40} fill="none" {...props}>
         <rect width={40} height={40} fill="#fff" rx={20} />
         <path

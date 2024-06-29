@@ -1,7 +1,7 @@
 import { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { Loader } from '@/widgets/Loader';
 import { AppRoutesProps, routeConfig } from '../config/routeConfig';
-import { PageLoader } from '@/widgets/PageLoader';
 import { Layout } from '@/widgets/Layout';
 
 export const AppRouter = memo(() => {
@@ -11,7 +11,7 @@ export const AppRouter = memo(() => {
     );
 
     return (
-        <Suspense fallback={<PageLoader />}>
+        <Suspense fallback={<Loader width="100vw" height="100vh" />}>
             <Layout>
                 <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>
             </Layout>

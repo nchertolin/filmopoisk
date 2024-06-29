@@ -3,7 +3,6 @@
 import { SVGProps } from 'react';
 
 export const NextIcon = (props: SVGProps<unknown>) => (
-    // eslint-disable-next-line react/jsx-props-no-spreading
     <svg xmlns="http://www.w3.org/2000/svg" width={13} height={24} fill="none" {...props}>
         <path
             fill="#1B1F23"

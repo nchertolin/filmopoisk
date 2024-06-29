@@ -1,5 +1,5 @@
 .container {
-    width: var(--filter-width);
+    width: 100%;
     align-self: flex-start;
     background-color: var(--inverted-font-color);
     border-radius: var(--space-s);

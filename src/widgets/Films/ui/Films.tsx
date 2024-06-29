@@ -1,29 +1,42 @@
-// import styles from './Films.module.css';
-
 import { Stack } from '@mui/material';
-import { BasePagination } from '@/shared/ui';
+import { useSelector } from 'react-redux';
 import { Film } from '@/entities/Film';
-import { FilmsSearch } from '@/features/search';
+import { FilmsSearch, getTitle } from '@/features/search';
+import { useGetFilmsQuery } from '../api/filmsApi';
+import { getSelectedOptions } from '@/features/filter';
+import { Loader } from '@/widgets/Loader';
+import { FilmsEmpty } from './Films.empty';
+import { FilmsPagination, getPage } from '@/features/pagination';
 
 export const Films = () => {
-    console.log('Films');
+    const title = useSelector(getTitle);
+    const page = useSelector(getPage);
+    const { genre, year } = useSelector(getSelectedOptions);
+
+    const { isFetching, data } = useGetFilmsQuery({
+        title: title.length ? title : undefined,
+        genre: genre !== '0' ? genre : undefined,
+        release_year: year !== '0' ? year : undefined,
+        page,
+    });
+
+    const isEmpty = data?.search_result.length === 0;
+    const isPaginationVisible = !isFetching && data?.total_pages > 1;
 
     return (
         <Stack spacing={2} width="100%">
             <FilmsSearch />
 
-            <Film
-                film={{
-                    id: 1,
-                    title: 'Title',
-                    genre: 'Genre',
-                    release_year: 2001,
-                    description: 'Description',
-                    poster: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKTezalux1__3KwbJ1Bt-WnQQkW82G1Nwy6g&s',
-                }}
-            />
+            {/* eslint-disable-next-line no-nested-ternary */}
+            {isFetching ? (
+                <Loader height="80vh" />
+            ) : isEmpty ? (
+                <FilmsEmpty height="80vh" />
+            ) : (
+                data?.search_result.map((item) => <Film key={item.id} film={item} />)
+            )}
 
-            <BasePagination count={4} />
+            {isPaginationVisible && <FilmsPagination count={data?.total_pages || 1} />}
         </Stack>
     );
 };

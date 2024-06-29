@@ -1,16 +1,22 @@
 import { Stack, Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { ChangeEvent } from 'react';
 import styles from './Filter.module.css';
-import { SelectOption } from '@/shared/lib/types/selectOption.ts';
 import { BaseSelect } from '@/shared/ui';
-
-const options = [
-    { label: 'Text', value: 0 },
-    { label: 'Label 1', value: 1 },
-    { label: 'Label 2', value: 2 },
-] as SelectOption[];
+import { getAllOptions } from '@/features/filter';
+import { useActions } from '@/app/providers/StoreProvider';
 
 export const Filter = () => {
-    console.log('filter');
+    const { setGenre, setYear } = useActions();
+    const { genres, years } = useSelector(getAllOptions);
+
+    const handleGenreChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setGenre(e.target.value as never);
+    };
+
+    const handleYearChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setYear(e.target.value as never);
+    };
 
     return (
         <Stack spacing={3} className={styles.container}>
@@ -18,11 +24,11 @@ export const Filter = () => {
             <Stack spacing={2}>
                 <Stack spacing={1}>
                     <Typography>Жанр</Typography>
-                    <BaseSelect options={options.slice(1)} placeholder={options[0]} defaultValue={options[0].value} />
+                    <BaseSelect options={genres} defaultValue="0" onChange={handleGenreChange} />
                 </Stack>
                 <Stack spacing={1}>
                     <Typography>Год выпуска</Typography>
-                    <BaseSelect options={options.slice(1)} placeholder={options[0]} defaultValue={options[0].value} />
+                    <BaseSelect options={years} defaultValue="0" onChange={handleYearChange} />
                 </Stack>
             </Stack>
         </Stack>

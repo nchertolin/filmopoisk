@@ -1,10 +1,15 @@
 import { Stack, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styles from './Header.module.css';
 import { LoginModal } from '@/features/login';
+import { getUserInited } from '@/entities/User';
+import { UserIcon } from '@/shared/ui/Icons/UserIcon.tsx';
+import { LogoutButton } from '@/features/logout';
 
 export const Header = () => {
     const navigate = useNavigate();
+    const isAuth = useSelector(getUserInited);
 
     const handleClick = () => {
         navigate('/');
@@ -21,7 +26,14 @@ export const Header = () => {
                 >
                     Фильмопоиск
                 </Typography>
-                <LoginModal />
+                {isAuth ? (
+                    <Stack direction="row" spacing={2}>
+                        <UserIcon />
+                        <LogoutButton />
+                    </Stack>
+                ) : (
+                    <LoginModal />
+                )}
             </Stack>
         </Stack>
     );

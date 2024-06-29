@@ -26,6 +26,7 @@ module.exports = {
         'max-classes-per-file': 'off',
         'react/prop-types': 'off',
         'react/require-default-props': 'off',
+        'react/jsx-props-no-spreading': 'off',
         'react/display-name': 'off',
         'max-len': ['warn', 120],
         'react/react-in-jsx-scope': 'off',

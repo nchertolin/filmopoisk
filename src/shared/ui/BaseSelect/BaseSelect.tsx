@@ -1,21 +1,20 @@
 import { MenuItem, TextFieldProps, Typography } from '@mui/material';
 import { memo } from 'react';
-import { SelectOption } from '@/shared/lib/types/selectOption';
 import { BaseField } from '@/shared/ui';
 import { SelectIcon } from '@/shared/ui/Icons/SelectIcon.tsx';
 
 type BaseSelectProps = Omit<TextFieldProps, 'placeholder'> & {
-    readonly options: SelectOption[];
-    readonly placeholder?: SelectOption;
+    readonly options: Record<string, string>;
 };
 
 export const BaseSelect = memo((props: BaseSelectProps) => {
-    const { options, placeholder, ...selectProps } = props;
+    const { options, defaultValue, ...selectProps } = props;
 
     return (
         <BaseField
             fullWidth
             select
+            defaultValue={defaultValue}
             SelectProps={{
                 IconComponent: SelectIcon,
                 MenuProps: {
@@ -32,17 +31,11 @@ export const BaseSelect = memo((props: BaseSelectProps) => {
                     top: 'unset',
                 },
             }}
-            // eslint-disable-next-line react/jsx-props-no-spreading
             {...selectProps}
         >
-            {placeholder && (
-                <MenuItem value={placeholder.value} disabled>
-                    <Typography color="secondary">{placeholder.label}</Typography>
-                </MenuItem>
-            )}
-            {options.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                    {option.label}
+            {Object.entries(options).map(([label, value]) => (
+                <MenuItem key={label} value={label}>
+                    <Typography color={label === defaultValue ? 'secondary' : ''}> {value}</Typography>
                 </MenuItem>
             ))}
         </BaseField>
