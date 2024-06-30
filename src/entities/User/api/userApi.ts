@@ -5,7 +5,7 @@ import { UserSecretStorageService } from '@/shared/lib/helpers/userSecretStorage
 
 const userApi = baseApi.injectEndpoints({
     endpoints: (build) => ({
-        getToken: build.mutation<void, LoginRequest>({
+        getToken: build.mutation<TokenDto, LoginRequest>({
             query: (req) => ({
                 url: '/login',
                 method: 'POST',

@@ -9,7 +9,7 @@ const detailsApi = baseApi.injectEndpoints({
                 url: `/movie/${req.id}`,
                 method: 'GET',
             }),
-            providesTags: (result, error, arg) => (result ? [{ type: 'Film' as const, id: arg.id }] : ['Film']),
+            providesTags: (result, _, arg) => (result ? [{ type: 'Film' as const, id: arg.id }] : ['Film']),
         }),
     }),
 });

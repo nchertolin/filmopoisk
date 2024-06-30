@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { SVGProps } from 'react';
 
-export const StarIcon = ({ fill, ...props }: SVGProps<unknown>) => (
+export const StarIcon = ({ fill, ...props }: SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="none" {...props}>
         <path
             fill={fill}

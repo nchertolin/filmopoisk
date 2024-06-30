@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { FilterSchema } from '../types/filterSchema';
+import { FilterSchema } from '../types/FilterSchema';
 import { GENRES } from '../const/genres.ts';
 import { YEARS } from '../const/years.ts';
 

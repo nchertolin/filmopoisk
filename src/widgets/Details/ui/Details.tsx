@@ -1,11 +1,11 @@
 import { Avatar, Stack, Typography } from '@mui/material';
 import styles from './Details.module.css';
-import { IFilm } from '@/entities/Film';
+import { IFilmShort } from '@/entities/Film';
 import { capitalize } from '@/shared/lib/helpers/capitalize.ts';
 import { FilmRate } from '@/features/rate';
 
 interface DetailsProps {
-    readonly film: Omit<IFilm, 'actors'>;
+    readonly film: IFilmShort;
 }
 
 interface InfoRowProps {

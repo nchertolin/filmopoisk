@@ -4,16 +4,27 @@ import { LocalStorageService } from '@/shared/lib/helpers/localStorage.ts';
 
 const rateApi = baseApi.injectEndpoints({
     endpoints: (build) => ({
-        postRate: build.mutation<void, RateRequest>({
+        postRate: build.mutation<string, RateRequest>({
             query: (req) => ({
                 url: '/rateMovie',
                 method: 'POST',
                 body: req,
             }),
-            transformResponse: (response, _, arg) => {
-                LocalStorageService.save(arg.movieId, arg.user_rate);
+            transformResponse: (response: string, _: unknown, arg: RateRequest) => {
+                if (response) {
+                    LocalStorageService.save(arg.movieId, arg.user_rate);
+                }
+                return response;
             },
-            invalidatesTags: (_, error, arg) => [{ type: 'Film', id: arg.id }],
+            invalidatesTags: (result, _: unknown, arg: RateRequest) =>
+                result
+                    ? [
+                          {
+                              type: 'Film',
+                              id: arg.movieId,
+                          },
+                      ]
+                    : ['Film'],
         }),
     }),
 });

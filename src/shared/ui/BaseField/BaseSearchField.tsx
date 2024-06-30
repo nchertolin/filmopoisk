@@ -30,7 +30,7 @@ export const BaseSearchField = (props: SearchFieldProps) => {
                         <SearchIcon />
                     </InputAdornment>
                 ),
-                endAdornment: otherProps.value.length ? (
+                endAdornment: (otherProps.value as string).length ? (
                     <InputAdornment position="end">
                         <IconButton onClick={onClear} sx={{ padding: 0 }}>
                             <ClearIcon />

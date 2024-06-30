@@ -14,15 +14,17 @@ type FilmRateProps = RatingProps & {
 
 export const FilmRate = (props: FilmRateProps) => {
     const { filmId, ...ratingProps } = props;
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState<number | null>(0);
     const isAuth = useSelector(getUserInited);
     const [postRate, { isLoading }] = usePostRateMutation();
 
-    const debouncedPostRate = useDebouncedCallback((value: number) => {
-        postRate({ movieId: filmId, user_rate: value });
+    const debouncedPostRate = useDebouncedCallback((value: number | null) => {
+        if (value) {
+            postRate({ movieId: filmId, user_rate: value });
+        }
     }, DEBOUCE_DELAY);
 
-    const handleRatingChange = (_: SyntheticEvent, value: number) => {
+    const handleRatingChange = (_: SyntheticEvent, value: number | null) => {
         debouncedPostRate(value);
         setRating(value);
     };

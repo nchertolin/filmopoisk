@@ -63,5 +63,9 @@ const IconContainerComponent = (props: IconContainerComponentProps) => {
 };
 
 export const BaseRating = memo((props: RatingProps) => (
-    <StyledRating precision={1} IconContainerComponent={IconContainerComponent} {...props} />
+    <StyledRating
+        precision={1}
+        IconContainerComponent={IconContainerComponent as typeof props.IconContainerComponent}
+        {...props}
+    />
 ));

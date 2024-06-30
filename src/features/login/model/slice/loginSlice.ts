@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Status } from '@/shared/api';
-import { LoginSchema } from '../types/loginSchema';
+import { LoginSchema } from '../types/LoginSchema';
 import { actions } from '../actions';
 
 const initialState: LoginSchema = {
@@ -18,9 +18,6 @@ export const loginSlice = createSlice({
         },
         setPassword: (state, action: PayloadAction<LoginSchema['password']>) => {
             state.password = action.payload;
-        },
-        setOpen: (state, payload: PayloadAction<LoginSchema['isModalOpen']>) => {
-            state.isModalOpen = payload;
         },
         clear: () => initialState,
     },

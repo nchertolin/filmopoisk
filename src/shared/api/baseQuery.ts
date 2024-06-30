@@ -1,10 +1,10 @@
-import { type BaseQueryFn } from '@reduxjs/toolkit/dist/query/baseQueryTypes';
 import {
+    type BaseQueryFn,
     type FetchArgs,
+    fetchBaseQuery,
     type FetchBaseQueryError,
     type FetchBaseQueryMeta,
-} from '@reduxjs/toolkit/dist/query/fetchBaseQuery';
-import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+} from '@reduxjs/toolkit/query/react';
 import { UserSecretStorageService } from '@/shared/lib/helpers/userSecretStorage';
 
 export const baseQuery: BaseQueryFn<

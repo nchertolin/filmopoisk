@@ -1,4 +1,4 @@
-export type { FilterSchema } from './model/types/filterSchema';
+export type { FilterSchema } from './model/types/FilterSchema';
 export { Genre } from './model/types/Genre';
 export { Filter } from './ui/Filter';
 export { filterReducer, filterActions } from './model/slice/filterSlice';

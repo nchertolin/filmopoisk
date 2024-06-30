@@ -2,7 +2,7 @@
 
 import { SVGProps } from 'react';
 
-export const PrevIcon = (props: SVGProps<unknown>) => (
+export const PrevIcon = (props: SVGProps<SVGSVGElement>) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={13}

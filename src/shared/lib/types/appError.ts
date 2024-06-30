@@ -5,8 +5,7 @@ export type EntityValidationErrors<T extends Record<string, any>> = {
     [P in keyof T]?: PropValidationMessage<T[P]>;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type PropValidationMessage<T> = string;
+type PropValidationMessage<T> = T;
 
 export class AppError<TEntity extends Record<string, any> = never> extends Error {
     public override readonly message: string;

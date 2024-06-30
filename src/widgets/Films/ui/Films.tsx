@@ -16,12 +16,12 @@ export const Films = () => {
     const { isFetching, data } = useGetFilmsQuery({
         title: title.length ? title : undefined,
         genre: genre !== '0' ? genre : undefined,
-        release_year: year !== '0' ? year : undefined,
-        page,
+        release_year: year !== '0' ? Number(year) : undefined,
+        page: page !== 1 ? page : undefined,
     });
 
     const isEmpty = data?.search_result.length === 0;
-    const isPaginationVisible = !isFetching && data?.total_pages > 1;
+    const isPaginationVisible = (!isFetching && Boolean(data?.total_pages) && data?.total_pages > 1) ?? false;
 
     return (
         <Stack spacing={2} width="100%">
@@ -29,9 +29,9 @@ export const Films = () => {
 
             {/* eslint-disable-next-line no-nested-ternary */}
             {isFetching ? (
-                <Loader height="80vh" />
+                <Loader height="calc(100vh - 200px)" />
             ) : isEmpty ? (
-                <FilmsEmpty height="80vh" />
+                <FilmsEmpty height="calc(100vh - 200px)" />
             ) : (
                 data?.search_result.map((item) => <Film key={item.id} film={item} />)
             )}
