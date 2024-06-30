@@ -22,6 +22,7 @@ export const LoginModal = memo(() => {
         formState: { errors },
         handleSubmit,
         register,
+        setError,
         reset,
     } = useForm<LoginFormSchema>({
         resolver: zodResolver(loginFormSchema),
@@ -54,7 +55,11 @@ export const LoginModal = memo(() => {
             handleClose();
             dispatch(userActions.login());
         }
-    }, [status, handleClose, dispatch]);
+
+        if (status === Status.failure) {
+            setError('root', { type: 'server', message: 'Неверный логин или пароль' });
+        }
+    }, [status, handleClose, setError, dispatch]);
 
     return (
         <>

@@ -13,17 +13,17 @@ export const FilmsSearch = memo(() => {
     const location = useLocation();
     const { setTitle } = useActions();
     const [search, setSearch] = useState(DEFAULT_VALUE);
-    const updateURL = useUpdateURL((value) => value === DEFAULT_VALUE || value === 1);
+    const updateURL = useUpdateURL((value) => value === DEFAULT_VALUE || value === '1');
 
     const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
         const title = e.target.value;
         setSearch(title);
-        updateURL({ title, page: 1 });
+        updateURL({ title, page: '1' });
     };
 
     const handleClear = () => {
         setSearch(DEFAULT_VALUE);
-        updateURL({ title: DEFAULT_VALUE, page: 1 });
+        updateURL({ title: DEFAULT_VALUE, page: '1' });
     };
 
     const debouncedSetTitle = useDebouncedCallback((value: string) => {
@@ -31,7 +31,6 @@ export const FilmsSearch = memo(() => {
     }, DEBOUCE_DELAY);
 
     useEffect(() => {
-         
         const params = new URLSearchParams(location.search);
         const title = params.get('title') || DEFAULT_VALUE;
         setSearch(title);

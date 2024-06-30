@@ -15,14 +15,14 @@ export const Filter = () => {
     const { setGenre, setYear } = useActions();
     const { genres, years } = useSelector(getAllOptions);
     const { genre, year } = useSelector(getSelectedOptions);
-    const updateURL = useUpdateURL((value) => value === DEFAULT_VALUE || value === 1);
+    const updateURL = useUpdateURL((value) => value === DEFAULT_VALUE || value === '1');
 
     const handleGenreChange = (e: ChangeEvent<HTMLInputElement>) => {
-        updateURL({ genre: e.target.value, page: 1 });
+        updateURL({ genre: e.target.value, page: '1' });
     };
 
     const handleYearChange = (e: ChangeEvent<HTMLInputElement>) => {
-        updateURL({ release_year: e.target.value, page: 1 });
+        updateURL({ release_year: e.target.value, page: '1' });
     };
 
     useEffect(() => {

@@ -10,7 +10,7 @@ interface FilmsPaginationProps {
     readonly count: number;
 }
 
-const DEFAULT_VALUE = 1;
+const DEFAULT_VALUE = '1';
 
 export const FilmsPagination = memo((props: FilmsPaginationProps) => {
     const { count } = props;
@@ -20,16 +20,14 @@ export const FilmsPagination = memo((props: FilmsPaginationProps) => {
     const updateURL = useUpdateURL((value) => value === DEFAULT_VALUE);
 
     const handlePageChange = (_: ChangeEvent<unknown>, value: number) => {
-        updateURL({ page: value });
+        updateURL({ page: value.toString() });
         window.scrollTo(0, 0);
     };
 
     useEffect(() => {
         const params = new URLSearchParams(location.search);
         const pageFromParams = params.get('page') || DEFAULT_VALUE;
-        if (page !== pageFromParams) {
-            setPage(Number(pageFromParams));
-        }
+        setPage(Number(pageFromParams));
     }, [location.search, page, setPage]);
 
     return <BasePagination page={page} count={count} onChange={handlePageChange} />;
