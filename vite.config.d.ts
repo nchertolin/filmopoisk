@@ -1,2 +1,2 @@
-declare const config: import("vite").UserConfig;
-export default config;
+declare const _default: import("vite").UserConfig;
+export default _default;

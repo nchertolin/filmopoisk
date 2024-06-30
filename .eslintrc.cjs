@@ -24,6 +24,7 @@ module.exports = {
         'import/extensions': 'off',
         'class-methods-use-this': 'off',
         'max-classes-per-file': 'off',
+        'no-underscore-dangle': 'off',
         'react/prop-types': 'off',
         'react/require-default-props': 'off',
         'react/jsx-props-no-spreading': 'off',
