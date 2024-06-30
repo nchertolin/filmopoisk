@@ -21,7 +21,7 @@ export const Films = () => {
     });
 
     const isEmpty = data?.search_result.length === 0;
-    const isPaginationVisible = (!isFetching && Boolean(data?.total_pages) && data?.total_pages! > 1) ?? false;
+    const isPaginationVisible = (!isFetching && Boolean(data?.total_pages) && data.total_pages! > 1) ?? false;
 
     return (
         <Stack spacing={2} width="100%">
